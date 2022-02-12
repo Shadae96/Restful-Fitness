@@ -7,18 +7,18 @@ const { User } = require('../models/User');
 
 //Register Form
 
-router.get('/register.handlebars', async (req, res) => {
-    res.render('/register.handlebars');
+router.get('/', async (req, res) => {
+    res.render('register');
 });
 
 //register Process
 
-router.post('/register.handlebars', async (req,res) =>{
+router.post('/', async (req,res) =>{
 
 const name = req.body.name;
 const email = req.body.email;
 const password = req.body.password;
-const password = req.body.password2;
+const password2 = req.body.password2;
 const age = req.body.age;
 const weight = req.body.weight;
 const height = req.body.height;
@@ -35,7 +35,7 @@ req.checkBody('height', 'Height is required').notEmpty();
 let errors = req.validationErrors();
 
 if(errors){
-    res.render('/register.handlebars', {
+    res.render('register', {
         errors: errors
     });
 } else {
@@ -50,6 +50,8 @@ if(errors){
     });
     newUser.save();
     req.flash('sucess', 'You are now registered and can log in');
-    res.redirect('/login.handlebars')
+    res.redirect('/login')
 }
 });
+
+module.exports = router
