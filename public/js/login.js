@@ -1,8 +1,8 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    const email = documet.querySelector('#username-field').value.trim();
-    const password = document.querySelector('#password-field').value.trim();
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
 
     if(email && password){
         const response = await fetch('/api/users/login', {
@@ -22,5 +22,15 @@ const loginFormHandler = async (event) => {
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
+
+
+  // New user button
+
+  const newUserForm = async () => {
+    // If successful redirect to the new user registration page
+    document.location.replace('/register');  
+};
+
+document.querySelector('#new-User').addEventListener('click', newUserForm);
 
   
