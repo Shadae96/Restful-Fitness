@@ -1,6 +1,6 @@
-const newUserForm = async () => {
+const newUserlogin = async () => {
       // If successful redirect to the new user registration page
-      document.location.replace('/register');  
+      document.location.replace('/login');  
   };
   
-  document.querySelector('#new-User').addEventListener('click', newUserForm);
+  document.querySelector('#newUserRegForm').addEventListener('click', newUserlogin);
