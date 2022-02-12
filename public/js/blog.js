@@ -10,6 +10,7 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
+
 }
 
 // Show an element
@@ -180,4 +181,5 @@ if (window.location.pathname === '/notes') {
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
 
+document.querySelector('#blog').addEventListener('click', logout);
 getAndRenderNotes();

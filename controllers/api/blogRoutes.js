@@ -3,40 +3,34 @@ const { Blog } = require('../../models');
 
 // (New Code Above)
 // __________________
-
-const express = require("express");
-const path = require ("path");
 const fs = require ("fs");
 const http= require ("http");
 const util = require("util");
 const {v4 : uuidv4} = require('uuid');
-const app = express();
 
 
 // Setting up the express Server
-app.use(express.static("public"));
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
-
-const port = process.env.PORT || 3004;
+router.use(express.static("public"));
+router.use(express.urlencoded({extended:true}));
+router.use(express.json());
 
 
 // Get notes from notes.html file
-app.get('/notes', (request,response)=> {
+router.get('/blog', (request,response)=> {
     response.sendFile(path.join(__dirname, "public", "notes.html"));
     console.log("retrieving notes file");
 });
 
 
 // Getting index file
-app.get('/', (request,response)=> {
+router.get('/', (request,response)=> {
     response.sendFile(path.join(__dirname, "public", "index.html"));
 console.log("retrieving index file");
 
 });
 
 // Getting existing notes from database
-app.get('/api/notes', (request,response)=> {
+router.get('/api/blog', (request,response)=> {
     fs.readFile(path.join(__dirname, "db","db.json"),"utf8", (err, jsonString) => {
         if (err){
             console.log ("Cannot read file:", err)
@@ -50,7 +44,7 @@ app.get('/api/notes', (request,response)=> {
 });
 
 // Use the post method to collect a new note and save it to the html page body
-app.post('/api/notes', (request,response) => {
+router.post('/api/blog', (request,response) => {
     fs.readFile(path.join(__dirname, "db", "db.json"), 'utf8', (err,jsonString)=> {
         if (err){ console.log ("Could not read file:", err)
         return
@@ -84,7 +78,7 @@ app.post('/api/notes', (request,response) => {
 
 
 // Use the delete method of remove exisitng notes
-app.delete(`/api/notes/:id`, (request, response)=> {
+router.delete(`/api/notes/:id`, (request, response)=> {
     fs.readFile(path.join(__dirname,"db", "db.json"), 'utf8',(err,jsonString)=>{
         if (err){
             console.log("Could not read file:", err)
@@ -116,12 +110,6 @@ app.delete(`/api/notes/:id`, (request, response)=> {
     });
     });
 
-});
-
-
-
-app.listen(port, () => {
-    console.log(`Server is listening on Port ${port}`);
 });
 
 module.exports = router;
