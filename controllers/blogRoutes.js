@@ -1,25 +1,56 @@
-const router= require('express').Router();
+const router = require('express').Router();
+const { Blog } = require('../models/');
 const express = require ('express');
-const { Blog } = require('../models/blog');
 
 // Show Blog page
 
 router.get('/blog', async (req, res) => {
-    // try {
-    //   const blogData = await Blog.findAll(req.body.title);
       res.render('blog');
 });
 
-      
-      
-    //   , {
-    //     users,
-    //     // Pass the logged in flag to the template
-    //     logged_in: req.session.logged_in,
-    //   });
-    // } catch (err) {
-    //   res.status(500).json(err);
-    // }
+    // GET ALL CURRENT BLOG POSTS
+router.get('/blog', async (req, res) => {
+    try {
+      const blogData = await Blog.findAll();
+      res.status(200).json(blogData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });  
+
+
+//CREATE A NEW BLOG
+
+router.post('/blog', async (req, res) => {
+    try {
+      const blogData = await Blog.create(req.body);
+      res.status(200).json(blogData);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
+
+  // DELETE A BLOG POST
+
+router.delete('/blog/:id', async (req, res) => {
+    try {
+      const blogData = await blogData.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+  
+      if (!blogData) {
+        res.status(404).json({ message: 'cannot delete note' });
+        return;
+      }
+  
+      res.status(200).json(blogData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;
 
@@ -110,38 +141,38 @@ module.exports = router;
 
 
 // Use the delete method of remove exisitng notes
-router.delete(`/api/notes/:id`, (request, response)=> {
-    fs.readFile(path.join(__dirname,"db", "db.json"), 'utf8',(err,jsonString)=>{
-        if (err){
-            console.log("Could not read file:", err)
-            return
-        }
+// router.delete(`/api/notes/:id`, (request, response)=> {
+//     fs.readFile(path.join(__dirname,"db", "db.json"), 'utf8',(err,jsonString)=>{
+//         if (err){
+//             console.log("Could not read file:", err)
+//             return
+//         }
 
-        console.log('File data:', jsonString);
+//         console.log('File data:', jsonString);
 
-        var notes= JSON.parse(jsonString);
+//         var notes= JSON.parse(jsonString);
 
-    const newNote = {
-        title: request.body.title,
-        text: request.body.text,
-        id: uuidv4()
+//     const newNote = {
+//         title: request.body.title,
+//         text: request.body.text,
+//         id: uuidv4()
 
-    };
+//     };
 
-    notes.splice(request.params.id,1);
+//     notes.splice(request.params.id,1);
 
-    let NotesJSON = JSON.stringify(notes);
+//     let NotesJSON = JSON.stringify(notes);
 
-    fs.writeFile(path.join(__dirname, "db", "db.json"), NotesJSON, (err)=>
-    {
-        if (err) {
-            return console.log("could not delete this note:", err)
-        }
-        console.log("Note has successfully been deleted!", NotesJSON);
-        return NotesJSON;
-    });
-    });
+//     fs.writeFile(path.join(__dirname, "db", "db.json"), NotesJSON, (err)=>
+//     {
+//         if (err) {
+//             return console.log("could not delete this note:", err)
+//         }
+//         console.log("Note has successfully been deleted!", NotesJSON);
+//         return NotesJSON;
+//     });
+//     });
 
-});
+// });
 
-module.exports = router
+// module.exports = router
