@@ -10,17 +10,36 @@ class Blog extends Model {
 
 Blog.init(
     {
-        title: request.body.title,
-        text: request.body.text,
-        id: Math.random().toString(36).substring(2,9)
-    },
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
 
-    {
+      textarea: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      
+      },
+
+      {
+        hooks: {
+          beforeCreate: async (newUserData) => {
+            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            return newUserData;
+          },
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'blog',
       }
     );
 
