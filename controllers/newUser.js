@@ -4,9 +4,6 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const { User } = require('../models/User');
 
-router.get('/', async (req, res) => {
-    res.render('register');
-});
 
 //process to create a new user in the database.
 

@@ -27,7 +27,6 @@ Blog.init(
       },
       
       },
-
       {
         // hooks: {
         //   beforeCreate: async (newUserData) => {

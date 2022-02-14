@@ -36,9 +36,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//trying to create a new user
+//documentation link: https://expressjs.com/en/4x/api.html#req.body
+app.post('/register', function(req, res, next){
+  console.log(req.body)
+  res.json(req.body)
+});
+
 app.use(routes);
 
-//Importing and Create routes
+
 
 
 sequelize.sync({ force: false }).then(() => {
