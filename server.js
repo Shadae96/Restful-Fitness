@@ -38,14 +38,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //trying to create a new user
 //documentation link: https://expressjs.com/en/4x/api.html#req.body
-app.post('/register', function(req, res, next){
-  console.log(req.body)
-  res.json(req.body)
-});
+// app.post('/register', function(req, res, next){
+//   console.log(req.body)
+//   res.json(req.body)
+// });
+
+// or
+// this requires bodyparser and 
+// app.post('/newUserReg', function(req, res){
+//   var name = req.query.name;
+// })
 
 app.use(routes);
-
-
 
 
 sequelize.sync({ force: false }).then(() => {

@@ -1,6 +1,8 @@
+const express = require ('express');
+// moved the express package up
 const router = require('express').Router();
 const { Blog } = require('../models/');
-const express = require ('express');
+
 
 // Show Blog page
 router.get('/blog', async (req, res) => {
