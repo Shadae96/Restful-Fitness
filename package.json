@@ -8,6 +8,11 @@
     "start": "node server.js",
     "seed": "node seeds/seed.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shadae96/Restful-Fitness.git"
+
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
