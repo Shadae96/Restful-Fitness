@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RESTful-Fitness
 
 ## __Description__
@@ -37,3 +38,8 @@ This application is a fitness-tracking tool designed to provide users with the a
 
 
 
+=======
+# Restful-Fitness
+
+<!-- hello -->
+>>>>>>> d353b1b7752c73faab650a27e14200a16595d82c

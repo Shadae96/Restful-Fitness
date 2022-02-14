@@ -8,6 +8,11 @@
     "start": "node server.js",
     "seed": "node seeds/seed.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shadae96/Restful-Fitness.git"
+
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +24,8 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "sequelize": "^6.16.1"
   }
 }

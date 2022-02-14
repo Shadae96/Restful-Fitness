@@ -4,14 +4,11 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const { User } = require('../models/User');
 
-
-//Register Form
-
-router.get('/', async (req, res) => {
-    res.render('register');
+router.get('/login', async (req, res) => {
+    res.render('login');
 });
 
-//register Process
+//process to create a new user in the database.
 
 router.post('/', async (req,res) =>{
 
@@ -22,6 +19,8 @@ const password2 = req.body.password2;
 const age = req.body.age;
 const weight = req.body.weight;
 const height = req.body.height;
+
+
 
 req.checkBody('name', 'Name is required').notEmpty();
 req.checkBody('email', 'Email is required').notEmpty();
