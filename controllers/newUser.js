@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const { User } = require('../models/User');
 
-router.get('/login', async (req, res) => {
-    res.render('login');
+router.get('/', async (req, res) => {
+    res.render('register');
 });
 
 //process to create a new user in the database.
@@ -49,7 +49,7 @@ if(errors){
     });
     newUser.save();
     req.flash('sucess', 'You are now registered and can log in');
-    res.redirect('/login')
+    res.render('login')
 }
 });
 
