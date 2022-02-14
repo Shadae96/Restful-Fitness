@@ -16,8 +16,6 @@ const seedDatabase = async () => {
   process.exit(0);
 };
 
-
-
 const seedBlogDatabase = async () => {
   await sequelize.sync({ force: true });
 
