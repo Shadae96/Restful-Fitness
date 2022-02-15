@@ -6,6 +6,9 @@ const { User } = require('../models/User');
 
 
 //process to create a new user in the database.
+router.get('/', (req, res, next) => {
+    res.json({test: 'test' });
+});
 
 router.post('/register', async (req, res) => {
     try{
