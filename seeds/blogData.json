@@ -1,20 +1,14 @@
 [
     {
         "title":"Hello",
-        "text":"Hi",
-        "id":"xxndj8e"
+        "text":"Hi"
     },
-            
     {
-        "title":"What's for dinner",
-        "text":"bing bong",
-        "id":"ti4tlrx"
-    },
-                
+        "title":"What is for dinner",
+        "text":"bing bong"  
+    },            
     {
         "title":"Bing bong",
-        "text":"ayo",
-        "id":"j2lo5mi"
-        
+        "text":"Bing Bong" 
     }
 ]
