@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Restful-Fitness
+=======
+# RESTful-Fitness
+>>>>>>> ddbad5256eb174f2184caee1802aa1587a9a53fd
 
 ## __Description__
 
@@ -37,4 +41,7 @@ This application is a fitness-tracking tool designed to provide users with the a
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ddbad5256eb174f2184caee1802aa1587a9a53fd
