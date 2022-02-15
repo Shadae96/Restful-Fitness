@@ -1,8 +1,3 @@
-//requiring node modules
-const express = require('express');
-const bcrypt = require('bcrypt');
-
-
 const form = document.getElementById('form');
 const password1El = document.getElementById('password1');
 const password2El = document.getElementById('password2');
@@ -69,8 +64,12 @@ function validateForm(){
 const signupNewUser = async (e) =>{
      e.preventDefault();
 
+     validateForm();
+
+     if(isValid && passwordsMatch){
+
      const user = {
-                name: form.name.value,
+                user_name: form.name.value,
                 phone: form.phone.value,
                 email: form.email.value,
                 age: form.age.value,
@@ -82,7 +81,7 @@ const signupNewUser = async (e) =>{
     if (user){
         const response = await fetch('/api/users/register',{
             method:'POST',
-            body: JSON.stringify({name, phone, email, age, weight, height, password}),
+            body: JSON.stringify({user_name, phone, email, age, weight, height, password}),
             headers: {'Content-Type' : 'application/json'},
         });
 
@@ -92,33 +91,25 @@ const signupNewUser = async (e) =>{
             alert ('Failed to sign up.');
         }
     }
-};
+}};
 
 
-function processFormData(e){
-    e.preventDefault();
+
+// old function to capture data from form
+// function processFormData(e){
+//     e.preventDefault();
     
-    // validate form function
-    validateForm();
+//     // validate form function
+//     validateForm();
 
-    //submit data if valid 
-    if(isValid && passwordsMatch){
-        // storeFormData();
-        signupNewUser
-    }
+//     //submit data if valid 
+//     if(isValid && passwordsMatch){
+//         // storeFormData();
+//     }
     
-}
+// }
 
 //Event listener
-form.addEventListener('submit', processFormData);
+// form.addEventListener('submit', processFormData);
 
-//  Event listener
-// grab all the values
-//package all values and send to POST to database
-// make sure to match verbs and location
-
-
-// app.post('/register', function(req, res, next){
-//   console.log(req.body)
-//   res.json(req.body)
-// });
+document.querySelector('form').addEventListener('click', signupNewUser);

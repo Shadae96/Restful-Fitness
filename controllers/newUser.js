@@ -7,26 +7,27 @@ const { User } = require('../models/User');
 
 //process to create a new user in the database.
 
-router.post('/', async (req,res) =>{
+router.post('/register', async (req, res) => {
+    try{
+        const dbUserData = await User.create({
+            user_name: req.name.value,
+            phone: req.phone.value,
+            email: req.email.value,
+            age: req.age.value,
+            weight: req.weight.value,
+            height: req.height.value,
+            password: req.password.value
+        });
 
-if(errors){
-    res.render('register', {
-        errors: errors
-    });
-} else {
-    const salt = await bcrypt.genSalt(10);
-    const newUser = await User.create({
-        name: req.body.name,
-        email: req.body.email,
-        age: req.body.age,
-        weight: req.body.weight,
-        height: req.body.height,
-        password: await bcrypt.hash(req.body.password, salt)
-    });
-    newUser.save();
-    req.flash('sucess', 'You are now registered and can log in');
-    res.render('login')
-}
-});
+        req.session.save(() => {
+            req.session.loggedIn = true;
+
+            res.status(200).json(dbUserData);
+        });
+    } catch(err){
+        console.log(err);
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router
