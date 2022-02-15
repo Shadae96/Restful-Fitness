@@ -2,13 +2,17 @@ const router = require("express").Router();
 
 const apiRoutes = require("./api");
 const homeRoutes = require("./homeRoutes");
-const blogRoutes = require("./blogRoutes");
+
+// const blogRoutes = require("./blogRoutes");
+
 const newRegForm = require('./regForm');
 const newUserReg = require('./newUser');
 
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
-router.use("/api", blogRoutes);
+
+// router.use("/api", blogRoutes);
+
 router.use('/register', newRegForm);
 router.use('/login', newUserReg);
 

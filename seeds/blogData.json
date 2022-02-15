@@ -1,14 +1,22 @@
 [
     {
         "title":"Hello",
-        "text":"Hi"
+        "textarea":"Hi"
     },
     {
-        "title":"What is for dinner",
-        "text":"bing bong"  
+        "title":"What is for dinner",\
+        "textarea":"bing bong"
+    },
+                
+    {
+        "title":"Bing bong",
+        "textarea":"ayo"
+        
+     
     },            
     {
         "title":"Bing bong",
-        "text":"Bing Bong" 
+       "textares": "Hello"
+
     }
 ]

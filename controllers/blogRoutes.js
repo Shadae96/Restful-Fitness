@@ -3,15 +3,30 @@ const express = require ('express');
 const router = require('express').Router();
 const { Blog } = require('../models/');
 
+const path = require('path');
+const withAuth = require('../utils/auth');
 
-// Show Blog page
-router.get('/blog', async (req, res) => {
-      res.render('blog');
-});
+
+
+
+router.get('/blog', withAuth, async (request,response)=> {
+  try{
+    response.sendFile(path.join(__dirname, "views", "blog.handlebars"));
+    console.log("retrieving notes file");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});  
+
+
+// router.get('/blog', async (req, res) => {
+//       res.render('blog');
+// });
+
 
 
     // GET ALL CURRENT BLOG POSTS
-router.get('/blog', async (req, res) => {
+router.get('/blog', withAuth, async(req, res) => {
     try {
       const blogData = await Blog.findAll();
       res.status(200).json(blogData);
@@ -22,7 +37,8 @@ router.get('/blog', async (req, res) => {
 
 
 //CREATE A NEW BLOG
-router.post('/blog', async (req, res) => {
+router.post('/blog',withAuth, async (req, res) => {
+
     try {
       const blogData = await Blog.create(req.body);
       res.status(200).json(blogData);
