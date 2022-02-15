@@ -1,7 +1,6 @@
 //requiring node modules
 const express = require('express');
 const bcrypt = require('bcrypt');
-const async = require('seed/lib/seed/base/async');
 
 
 const form = document.getElementById('form');
@@ -70,7 +69,7 @@ function validateForm(){
 const signupNewUser = async (e) =>{
      e.preventDefault();
 
-     const new user = {
+     const user = {
                 name: form.name.value,
                 phone: form.phone.value,
                 email: form.email.value,
@@ -78,9 +77,22 @@ const signupNewUser = async (e) =>{
                 weight: form.weight.value,
                 height: form.height.value,
                 password: form.password.value
-            };
-    if (user)
-}
+            }
+
+    if (user){
+        const response = await fetch('/api/users/register',{
+            method:'POST',
+            body: JSON.stringify({name, phone, email, age, weight, height, password}),
+            headers: {'Content-Type' : 'application/json'},
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert ('Failed to sign up.');
+        }
+    }
+};
 
 
 function processFormData(e){
@@ -100,3 +112,13 @@ function processFormData(e){
 //Event listener
 form.addEventListener('submit', processFormData);
 
+//  Event listener
+// grab all the values
+//package all values and send to POST to database
+// make sure to match verbs and location
+
+
+// app.post('/register', function(req, res, next){
+//   console.log(req.body)
+//   res.json(req.body)
+// });
