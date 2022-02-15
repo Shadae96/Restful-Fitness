@@ -5,10 +5,9 @@ const passport = require('passport');
 const { User } = require('../models/User');
 
 
-//Register Form
+//Route to the Register Form from the Login Page
 
 router.get('/', async (req, res) => {
-    // handle creating new user
     res.render('register');
 });
 

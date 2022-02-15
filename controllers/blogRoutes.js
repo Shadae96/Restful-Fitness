@@ -1,9 +1,13 @@
+const express = require ('express');
+// moved the express package up
 const router = require('express').Router();
 const { Blog } = require('../models/');
+
 const path = require('path');
 const withAuth = require('../utils/auth');
 
-// Show Blog page
+
+
 
 router.get('/blog', withAuth, async (request,response)=> {
   try{
@@ -19,6 +23,8 @@ router.get('/blog', withAuth, async (request,response)=> {
 //       res.render('blog');
 // });
 
+
+
     // GET ALL CURRENT BLOG POSTS
 router.get('/blog', withAuth, async(req, res) => {
     try {
@@ -31,8 +37,8 @@ router.get('/blog', withAuth, async(req, res) => {
 
 
 //CREATE A NEW BLOG
-
 router.post('/blog',withAuth, async (req, res) => {
+
     try {
       const blogData = await Blog.create(req.body);
       res.status(200).json(blogData);
@@ -43,7 +49,6 @@ router.post('/blog',withAuth, async (req, res) => {
 
 
   // DELETE A BLOG POST
-
 router.delete('/blog/:id', async (req, res) => {
     try {
       const blogData = await blogData.destroy({
