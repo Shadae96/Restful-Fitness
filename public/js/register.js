@@ -81,7 +81,7 @@ const signupNewUser = async (e) =>{
     if (user){
         const response = await fetch('/api/users/register',{
             method:'POST',
-            body: JSON.stringify({user_name, phone, email, age, weight, height, password}),
+            body: JSON.stringify({user_name:}, phone, email, age, weight, height, password}),
             headers: {'Content-Type' : 'application/json'},
         });
 
