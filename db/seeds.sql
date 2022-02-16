@@ -14,11 +14,11 @@
 -- need to check why the name values are highlighted blue
 -- passwords include special characters and numbers but are set to varchar is this a problem.
 
-CREATE TABLE blog (
-    id INT NOT NULL AUTO_INCREMENT,
-    title VARCHAR(300) NOT NULL,
-    textarea VARCHAR(300) NOT NULL,
-    PRIMARY KEY(id),
-    FOREIGN KEY(id),
-    REFERENCES users,
-);
+-- CREATE TABLE blog (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     title VARCHAR(300) NOT NULL,
+--     textarea VARCHAR(300) NOT NULL,
+--     PRIMARY KEY(id),
+--     FOREIGN KEY(id),
+--     REFERENCES users,
+-- );

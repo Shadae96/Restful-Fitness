@@ -7,12 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seed": "node seeds/seed.js"
-  
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shadae96/Restful-Fitness.git"
-
   },
   "keywords": [],
   "author": "",
@@ -28,7 +26,7 @@
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",
     "seed": "^0.4.4",
-    "sequelize": "^6.16.1"
-    
+    "sequelize": "^6.16.1",
+    "uuidv4": "^6.2.12"
   }
 }
