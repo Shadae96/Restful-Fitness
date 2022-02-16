@@ -4,8 +4,21 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-
 const sequelize = require('./config/connection');
+const router = require('./controllers/api/userRoutes');
+
+// for notes app
+const fs = require ("fs");
+const http= require ("http");
+const util = require("util");
+
+
+router.use(express.static("public"));
+router.use(express.urlencoded({extended:true}));
+router.use(express.json());
+// end of code for notes app
+
+
 
 // Create a new sequelize store using the express-session package
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -36,20 +49,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//trying to create a new user
-//documentation link: https://expressjs.com/en/4x/api.html#req.body
-// app.post('/register', function(req, res, next){
-//   console.log(req.body)
-//   res.json(req.body)
-// });
-
-// or
-// this requires bodyparser and 
-// app.post('/newUserReg', function(req, res){
-//   var name = req.query.name;
-// })
-
 app.use(routes);
+
+//Importing and Create routes
 
 
 sequelize.sync({ force: false }).then(() => {
