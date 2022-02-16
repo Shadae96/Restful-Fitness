@@ -4,7 +4,7 @@
         "textarea":"Hi"
     },
     {
-        "title":"What is for dinner",\
+        "title":"What is for dinner",
         "textarea":"bing bong"
     },
                 
@@ -16,7 +16,7 @@
     },            
     {
         "title":"Bing bong",
-       "textares": "Hello"
+       "textarea": "Hello"
 
     }
 ]

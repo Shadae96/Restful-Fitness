@@ -1,46 +1,44 @@
 const express = require ('express');
 // moved the express package up
 const router = require('express').Router();
-const { Blog } = require('../models/');
+const { Blog, User } = require('../models/');
 
 const path = require('path');
 const withAuth = require('../utils/auth');
+const {v4 : uuidv4} = require('uuid');
+
+const fs = require ("fs");
+const http= require ("http");
+const util = require("util");
 
 
+// get all blog posts --- works!
+router.get('/', async (req,res)=> {
+  try { 
+      const blogData = await Blog.findAll()
+      const blogs =blogData.map((blog) => blog.get ({plain:true}));
 
+      res.render("blog",
+      { blogs,
+        logged_in:req.session.logged_in
 
-router.get('/blog', withAuth, async (request,response)=> {
-  try{
-    response.sendFile(path.join(__dirname, "views", "blog.handlebars"));
-    console.log("retrieving notes file");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});  
+      })
 
-
-// router.get('/blog', async (req, res) => {
-//       res.render('blog');
-// });
-
-
-
-    // GET ALL CURRENT BLOG POSTS
-router.get('/blog', withAuth, async(req, res) => {
-    try {
-      const blogData = await Blog.findAll();
-      res.status(200).json(blogData);
-    } catch (err) {
+} catch (err) {
       res.status(500).json(err);
     }
   });  
 
 
-//CREATE A NEW BLOG
-router.post('/blog',withAuth, async (req, res) => {
+// Create new blog post
 
+  router.post('/', async (req, res) => {
     try {
-      const blogData = await Blog.create(req.body);
+      const blogData = await Blog.create({
+        ...req.body,
+        user_id: req.session.user_id,
+      });
+  
       res.status(200).json(blogData);
     } catch (err) {
       res.status(400).json(err);
@@ -48,24 +46,12 @@ router.post('/blog',withAuth, async (req, res) => {
   });
 
 
-  // DELETE A BLOG POST
-router.delete('/blog/:id', async (req, res) => {
-    try {
-      const blogData = await blogData.destroy({
-        where: {
-          id: req.params.id
-        }
-      });
-  
-      if (!blogData) {
-        res.status(404).json({ message: 'cannot delete note' });
-        return;
-      }
-  
-      res.status(200).json(blogData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+
+// Delete one Blog post
+
+
+
+
+
 
 module.exports = router;

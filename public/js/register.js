@@ -1,13 +1,3 @@
-
-const newUserlogin = async () => {
-      
-document.location.replace('/login');  
-};
-  
-document.querySelector('#newUserRegForm').addEventListener('click', newUserlogin);
-
-  
-
 const form = document.getElementById('form');
 const password1El = document.getElementById('password1');
 const password2El = document.getElementById('password2');
@@ -55,45 +45,71 @@ function validateForm(){
     }
 }
 
-function storeFormData(){
-    const user ={
-        name: form.name.value,
-        phone: form.phone.value,
-        email: form.email.value,
-        age: form.age.value,
-        weight: form.weight.value,
-        height: form.height.value,
-        password: form.password.value
-    };
+// Making this function async to improve security and post to database
+// function storeFormData(){
+//     const user ={
+//         name: form.name.value,
+//         phone: form.phone.value,
+//         email: form.email.value,
+//         age: form.age.value,
+//         weight: form.weight.value,
+//         height: form.height.value,
+//         password: form.password.value
+//     };
 
-//Do something with user data here
-    console.log(user)
-}
+// //Do something with user data here
+//     console.log(user)
+// }
 
+const signupNewUser = async (e) =>{
+     e.preventDefault();
 
-function processFormData(e){
-    e.preventDefault();
-    
-    // validate form function
-    validateForm();
+     validateForm();
 
-    //submit data if valid 
-    if(isValid && passwordsMatch){
-        storeFormData();
+     if(isValid && passwordsMatch){
+
+     const user = {
+                user_name: form.name.value,
+                phone: form.phone.value,
+                email: form.email.value,
+                age: form.age.value,
+                weight: form.weight.value,
+                height: form.height.value,
+                password: form.password.value
+            }
+
+    if (user){
+        const response = await fetch('/register/login',{
+            method:'POST',
+            body: JSON.stringify(user),
+            headers: {'Content-Type' : 'application/json'},
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert ('Failed to sign up.');
+        }
     }
+}};
+
+
+
+// old function to capture data from form
+// function processFormData(e){
+//     e.preventDefault();
     
-}
+//     // validate form function
+//     validateForm();
+
+//     //submit data if valid 
+//     if(isValid && passwordsMatch){
+//         // storeFormData();
+//     }
+    
+// }
 
 //Event listener
-form.addEventListener('submit', processFormData);
+// form.addEventListener('submit', processFormData);
 
-//  Event listener
-// grab all the values
-//package all values and send to POST to database
-// make sure to match verbs and location
-
-
-// app.post('/register', function(req, res, next){
-//   console.log(req.body)
-//   res.json(req.body)
-// });
+document.querySelector('form').addEventListener('click', signupNewUser);
