@@ -19,18 +19,18 @@ const loginFormHandler = async (event) => {
     }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
-
 
   // New user button
 
-  const newUserForm = async () => {
+const newUserForm = async () => {
     // If successful redirect to the new user registration page
     document.location.replace('/register');  
 };
 
 document.querySelector('#new-User').addEventListener('click', newUserForm);
+
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
 
   

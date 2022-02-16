@@ -6,14 +6,11 @@ let sequalize;
 if(process.env.JAWSDB_URL) {
 
     sequalize = new Sequelize (process.env.JAWSDB_URL);
-}
-    else {
-        sequalize = new Sequelize (
-
+}else {
+        sequalize = new Sequelize(
             process.env.DB_NAME,
             process.env.DB_USER,
             process.env.DB_PASSWORD,
-        
             {
                 host: 'localhost',
                 dialect: 'mysql',
