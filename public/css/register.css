@@ -1,22 +1,28 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Arsenal&display=swap');
-</style>
+/* Removed <style> tags from CSS & changed google font to Roboto 400, 700*/
+/* @import url('https://fonts.googleapis.com/css2?family=Arsenal&display=swap'); */
 
-html{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Changed to global scope from html */
+* {
     box-sizing: border-box;
 }
+/* html{
+    box-sizing: border-box;
+} */
 
 body{
     margin: 0;
     min-height: 100vh;
-    font-family:'Arsenal', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    /* font-family:'Arsenal', sans-serif; */
     letter-spacing: 2px;
     display: flex;
     /* align vertical axis */
     align-items: center;
     /* align horizontal axis */
     justify-content: center;
-    background: #354250;
+    background-color: #354250;
 }
 
 .container{
