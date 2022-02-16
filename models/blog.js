@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-//I am not sure we need bcrypt here this is for incryption of the password will we be incrypting the notes in the app?
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
@@ -17,19 +16,26 @@ Blog.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
+    user_id: {
+        type: DataTypes.INTEGER,
+       references: {
+           model:'user',
+           key:'id',
+       }
+      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue:'Title',
       },
 
       textarea: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'text',
       },
       
       },
+
       {
         // hooks: {
         //   beforeCreate: async (newUserData) => {
