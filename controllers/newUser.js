@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const { User } = require('../models/User');
+const { User } = require('../models');
 
 
 //process to create a new user in the database.
@@ -10,16 +10,17 @@ router.get('/', (req, res, next) => {
     res.json({test: 'test' });
 });
 
-router.post('/register', async (req, res) => {
+//http://localhost:3001/register/login/register/login
+router.post('/', async (req, res) => {
     try{
         const dbUserData = await User.create({
-            user_name: req.name.value,
-            phone: req.phone.value,
-            email: req.email.value,
-            age: req.age.value,
-            weight: req.weight.value,
-            height: req.height.value,
-            password: req.password.value
+            user_name: req.body.user_name,
+            phone: req.body.phone,
+            email: req.body.email,
+            age: req.body.age,
+            weight: req.body.weight,
+            height: req.body.height,
+            password: req.body.password
         });
 
         req.session.save(() => {
@@ -32,5 +33,7 @@ router.post('/register', async (req, res) => {
         res.status(500).json(err)
     }
 })
+
+
 
 module.exports = router
