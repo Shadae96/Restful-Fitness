@@ -1,3 +1,19 @@
+//Open the new  workout submission form
+const newWorkoutForm = async () => {
+document.location.replace('/workouts');  
+};
+
+
+
+//Open the view of all past workouts
+const newWorkoutForm = async () => {
+  document.location.replace('/workoutHistory');  
+  };
+
+//Call and display workouts
+
+
+
 const logout = async () => {
     // Make a POST request to destroy the session on the back end
     const response = await fetch('/api/users/logout', {
@@ -13,4 +29,6 @@ const logout = async () => {
     }
   };
   
+//Event listeners on the nav bar for the main page
+  document.querySelector('#newWorkout').addEventListener('click', newWorkoutForm);
   document.querySelector('#logout').addEventListener('click', logout);
