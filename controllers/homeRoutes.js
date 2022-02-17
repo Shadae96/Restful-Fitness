@@ -7,6 +7,7 @@ router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
+      //should this match to read [['user_name', 'ASC']]
       order: [['name', 'ASC']],
     });
 
