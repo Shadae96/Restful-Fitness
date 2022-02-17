@@ -16,7 +16,7 @@ const util = require("util");
 router.use(express.static("public"));
 router.use(express.urlencoded({extended:true}));
 router.use(express.json());
-// end of code for notes app
+
 
 
 
@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-//Importing and Create routes
+
 
 
 sequelize.sync({ force: false }).then(() => {
