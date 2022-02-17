@@ -1,3 +1,5 @@
+<div class="communityBody" id="communityBody"> 
+
 {{#if logged_in}}
   <section class = "container">
     <h1 class="community-title"> Restful Community</h1>
@@ -12,14 +14,17 @@
       type="text"
     />
     <textarea class="note-textarea" placeholder="Note Text"></textarea>
+    <button class="btn btn-primary" type="submit">submit</button>
   </div>
 
   <section class="flex-row justify-center notes">
     {{#each blogs as |blog|}}
-    {{blog.title}}
-    {{blog.textarea}}
+   <h2>{{blog.title}}</h2> 
+    <h3>{{blog.textarea}} </h3>
     {{/each}}
   </section>
   <script src="/js/blog.js"></script>
   </section>
   {{/if}}
+
+  </div>

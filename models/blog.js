@@ -30,7 +30,7 @@ Blog.init(
       },
 
       textarea: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       
