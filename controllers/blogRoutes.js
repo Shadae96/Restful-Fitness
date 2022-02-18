@@ -1,12 +1,8 @@
 const express = require ('express');
-// moved the express package up
 const router = require('express').Router();
 const { Blog, User } = require('../models/');
-
 const path = require('path');
 const withAuth = require('../utils/auth');
-const {v4 : uuidv4} = require('uuid');
-
 const fs = require ("fs");
 const http= require ("http");
 const util = require("util");
