@@ -33,7 +33,7 @@ router.get('/', withAuth, async (req, res) => {
 
     
 // Creating a new workout
-router.post('/', withAuth, async (req, res) => {
+router.post('/addWorkout', withAuth, async (req, res) => {
     try{
         const dbUserData = await Workouts.create({
             user_name: req.body.user_name,
