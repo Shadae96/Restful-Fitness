@@ -20,7 +20,7 @@ This application is a fitness-tracking tool designed to provide users with the a
   
 ---
 
-
+[Deployed App](https://restful--fitness.herokuapp.com/login)
 
 #### __Authors__
 
