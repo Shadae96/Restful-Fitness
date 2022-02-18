@@ -15,12 +15,7 @@ router.use("/api", apiRoutes);
 router.use("/api/blog", blogRoutes);
 router.use('/register', newRegForm);
 router.use('/register/login', newUserReg);
-<<<<<<< HEAD
-
-router.use('/workout', newWorkout)
-=======
 router.use('/api/workouts', workouts)
->>>>>>> main
 
 module.exports = router;
 
