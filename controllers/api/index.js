@@ -7,7 +7,7 @@ const newWorkoutRoutes = require('../newWorkoutRoutes');
 
 router.use('/users', userRoutes);
 router.use('/blog', blogRoutes);
-router.use('/newWorkout',newWorkoutRoutes);
+router.use('/newWorkout', newWorkoutRoutes);
 
 
 module.exports = router;

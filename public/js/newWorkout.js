@@ -28,14 +28,14 @@ function validateForm(){
 
 
 
-const addNewWorkout = async (e) =>{
+const addNewWorkout = async (e) => {
      e.preventDefault();
 
      validateForm();
 
      if(isValid){
 
-     const workout = {
+     const Workouts = {
         user_name: form.user_name.value,
         title: form.title.value,
         duration: form.duration.value,
@@ -43,10 +43,10 @@ const addNewWorkout = async (e) =>{
         outcome: form.outcome.value,
     }
 
-    if (workout){
+    if (Workouts){
         const response = await fetch('/api/newWorkout',{
             method:'POST',
-            body: JSON.stringify(workout),
+            body: JSON.stringify(Workouts),
             headers: {'Content-Type' : 'application/json'},
         });
 
