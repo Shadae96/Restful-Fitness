@@ -1,6 +1,6 @@
 //Open the new  workout submission form
 const newWorkoutForm = async () => {
-  const response = await fetch('/api/newWorkoutForm', {
+  const response = await fetch('/api/workouts', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
@@ -16,7 +16,7 @@ const newWorkoutForm = async () => {
 
 //Open the view of all past workouts
 const workoutHistoryHandler = async () => {
-    const response = await fetch('...', {
+    const response = await fetch('/api/workouts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });

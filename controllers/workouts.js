@@ -1,21 +1,17 @@
 const express = require ('express');
 const router = require('express').Router();
-const { Workouts, User } = require('../models/');
+const { Workouts, User } = require('../models');
 const path = require('path');
 const withAuth = require('../utils/auth');
 const fs = require ("fs");
 const http= require ("http");
 const util = require("util");
 
-router.get('/', withAuth, async (req, res) => {
+//Will display the new workout page
+router.get('/', (req, res,) => {
     res.render('workouts');
 });
 
-router.get('/workouts', withAuth, async (req, res) => {
-    Workouts.findAll(function(err, foundWorkouts){
-        console.log(foundWorkouts)
-    });
-});
 
 //getting the workouts
 router.get('/', withAuth, async (req, res) => {
@@ -34,6 +30,8 @@ router.get('/', withAuth, async (req, res) => {
       }
     });
 
+
+    
 // Creating a new workout
 router.post('/', withAuth, async (req, res) => {
     try{

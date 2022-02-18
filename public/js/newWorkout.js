@@ -44,7 +44,7 @@ const addNewWorkout = async (e) => {
     }
 
     if (Workouts){
-        const response = await fetch('/api/newWorkout',{
+        const response = await fetch('/api/workouts',{
             method:'POST',
             body: JSON.stringify(Workouts),
             headers: {'Content-Type' : 'application/json'},
@@ -59,5 +59,6 @@ const addNewWorkout = async (e) => {
     }
 }};
 
+document.getElementById('#addWorkout').addEventListener('click', addNewWorkout);
 
 
