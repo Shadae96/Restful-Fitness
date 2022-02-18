@@ -1,10 +1,24 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
 html,
 body {
+  background-color: #bbd0d6;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
   height: 100%;
   margin: 0;
   padding: 0;
 }
-
+.note{
+  background-color: #02F4FF;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  margin: 30px 20px;
+  height: 400px;
+  width: 400px;
+}
 .save-note {
   display: none;
 }
@@ -19,9 +33,11 @@ body {
 .note-textarea,
 .note-title {
   color: #000000;
+  font-family: inherit;
   width: 100%;
   outline: none;
   border: none;
+ 
 }
 
 .note-textarea {
