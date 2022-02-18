@@ -1,6 +1,6 @@
-const form = document.getElementById('#workoutForm');
+const form = document.getElementById('workoutForm');
 const messageContainer = document.querySelector('.workout-message-container');
-const message = document.getElementById('#workout-message');
+const message = document.getElementById('workout-message');
 
 // Setting the form in default to invalid
 let isValid = false;
@@ -51,7 +51,8 @@ const addNewWorkout = async (e) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/workouts');
+            
         } else {
             alert ('Failed to add new workout. Please try again');
         }
@@ -60,4 +61,3 @@ const addNewWorkout = async (e) => {
 
 
 
-document.querySelector('form').addEventListener('click', addNewWorkout);
