@@ -17,7 +17,7 @@ Blog.init(
       autoIncrement: true,
     },
 
-    user_id: {
+    name: {
         type: DataTypes.INTEGER,
        references: {
            model:'user',

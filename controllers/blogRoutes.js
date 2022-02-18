@@ -29,28 +29,24 @@ router.get('/', async (req,res)=> {
     }
   });  
 
-
 // Create new blog post
 
   router.post('/', async (req, res) => {
     try {
       const blogData = await Blog.create({
         ...req.body,
-        user_id: req.session.user_id,
+        title:req.body.title,
+        textarea:req.body.textarea
       });
-  
-      res.status(200).json(blogData);
+      req.session.save(() => {
+        req.session.logged_in = true;
+
+        res.status(200 ).json(blogData);
+      });
     } catch (err) {
-      res.status(400).json(err);
+      res.status(500).json(err);
     }
   });
-
-
-
-// Delete one Blog post
-
-
-
 
 
 
