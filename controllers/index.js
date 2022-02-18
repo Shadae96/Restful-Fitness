@@ -8,6 +8,8 @@ const blogRoutes = require("./blogRoutes");
 const newRegForm = require('./regForm');
 const newUserReg = require('./newUser');
 
+const newWorkout = require('./newWorkoutRoutes')
+
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
 
@@ -16,6 +18,8 @@ router.use("/api/blog", blogRoutes);
 
 router.use('/register', newRegForm);
 router.use('/register/login', newUserReg);
+
+router.use("/api/newWorkout", newWorkout)
 
 module.exports = router;
 

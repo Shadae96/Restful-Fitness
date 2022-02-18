@@ -16,7 +16,7 @@ const util = require("util");
 router.get('/', async (req,res)=> {
   try { 
       const blogData = await Blog.findAll()
-      const blogs =blogData.map((blog) => blog.get ({plain:true}));
+      const blogs = blogData.map((blog) => blog.get ({plain:true}));
 
       res.render("blog",
       { blogs,

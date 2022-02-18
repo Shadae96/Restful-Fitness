@@ -19,6 +19,7 @@
     <nav>
       <button class="btn" id="newWorkout">new workout</button>
       <button class="btn" id="myWorkouts">my workouts</button>
+      {{!-- Community is the blog --}}
       <button class="btn" id="community">community</button>
       <button class="btn" id="logout">logout</button>
     </nav>
@@ -34,7 +35,9 @@
 
   <!-- Only include the logout script if the user is logged in -->
   {{#if logged_in}}
+  <script src="/js/newWorkout.js"></script>
   <script src="/js/logout.js"></script>
   {{/if}}
+  
 </body>
 </html>

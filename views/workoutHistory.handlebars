@@ -1,0 +1,16 @@
+{{#if logged_in}}
+  <div class = "container workoutHistory" id="workoutHistory">
+    <h1 class="workoutHistory"> Workout History</h1>
+
+  <div class="flex-row justify-center workouts">
+    {{#each workouts as |workout|}}
+   <h2>{{workouts.title}}</h2> 
+    <h3>{{workout.duration}}</h3>
+    <h3>{{workout.intensity}}</h3>
+    <h3>{{workout.outcome}} </h3>
+    {{/each}}
+  </div>
+  <script src="/js/newWorkout.js"></script>
+  </div>
+{{/if}}
+
