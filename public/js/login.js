@@ -19,9 +19,7 @@ const loginFormHandler = async (event) => {
     }
 };
 
-document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
 
 // New user button
@@ -31,9 +29,7 @@ document.location.replace('/register');
 };
 
 
-document
-    .querySelector('#new-User')
-    .addEventListener('click', newUserForm);
+document.querySelector('#new-User').addEventListener('click', newUserForm);
 
 
   
