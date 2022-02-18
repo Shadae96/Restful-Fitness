@@ -1,4 +1,6 @@
-[
+const { Blog } = require('../models');
+
+const BlogData = [
     {
         "title":"EXERCISE DAILY",
         "textarea":"Did you know that daily exercise can reduce all of the biomarkers of aging? This includes improving eyesight, normalizing blood pressure, improving lean muscle, lowering cholesterol, and improving bone density. If you want to live well and live longer, you must exercise! Studies show that even ten minutes of exercise makes a difference — so do something! Crank the stereo and dance in your living room. Sign up for swing dancing or ballroom dancing lessons. Walk to the park with your kids or a neighbor you’d like to catch up with. Jump rope or play hopscotch. Spin a hula hoop. Play water volleyball. Bike to work. Jump on a trampoline. Go for a hike. These are all great things to do to improve your health."
@@ -29,4 +31,8 @@
         "title":"THINK SMALL",
         "textarea":"Often the biggest deterrent to improving health is feeling overwhelmed by all the available advice and research. Try to focus first on one small, seemingly inconsequential, unhealthy habit and turn it into a healthy, positive habit"
     }
-]
+];
+
+const seedBlog = () => Blog.bulkCreate(BlogData);
+
+module.exports = seedBlog

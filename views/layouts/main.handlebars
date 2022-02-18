@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
   <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/register.css">
+  {{!-- <link rel="stylesheet" href="/css/register.css"> --}}
 </head>
 
 <body>
@@ -19,9 +19,10 @@
     <nav>
       <button class="btn" id="newWorkout">new workout</button>
       <button class="btn" id="myWorkouts">my workouts</button>
+      {{!-- Community is the blog --}}
       <button class="btn" id="community">community</button>
       <button class="btn" id="logout">logout</button>
-      
+
     </nav>
     {{/if}}
   </header>
@@ -35,7 +36,9 @@
 
   <!-- Only include the logout script if the user is logged in -->
   {{#if logged_in}}
+  <script src="/js/newWorkout.js"></script>
   <script src="/js/logout.js"></script>
   {{/if}}
+  
 </body>
 </html>
