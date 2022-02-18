@@ -6,11 +6,10 @@ document.location.replace('/workouts');
 
 
 //Open the view of all past workouts
-const newWorkoutForm = async () => {
+const workoutHistoryHandler = async () => {
   document.location.replace('/workoutHistory');  
-  };
+};
 
-//Call and display workouts
 
 
 
@@ -32,3 +31,4 @@ const logout = async () => {
 //Event listeners on the nav bar for the main page
   document.querySelector('#newWorkout').addEventListener('click', newWorkoutForm);
   document.querySelector('#logout').addEventListener('click', logout);
+  document.querySelector('#myWorkouts').addEventListener('click',workoutHistoryHandler);

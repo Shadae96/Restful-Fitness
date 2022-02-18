@@ -4,18 +4,31 @@ const { Workouts, User } = require('../models/');
 
 const path = require('path');
 const withAuth = require('../utils/auth');
-const {v4 : uuidv4} = require('uuid');
+
 
 const fs = require ("fs");
 const http= require ("http");
 const util = require("util");
 
-router.get('/', (req, res, next) => {
-    res.json({test: 'test' });
-});
+//getting the workouts
+router.get('/workoutHistory', async (req, res) => {
+    // res.json({test: 'test' });
+    try { 
+        const workoutData = await Workouts.findAll()
+        const Workouts = workoutData.map((workout) => workout.get ({plain:true}));
+  
+        res.render("workoutHistory",
+        { workouts,
+          logged_in:req.session.logged_in
+        })
+  
+  } catch (err) {
+        res.status(500).json(err);
+      }
+    });
 
 // Creating a new workout
-router.post('/', async (req, res) => {
+router.post('/newWorkout', async (req, res) => {
     try{
         const dbUserData = await Workouts.create({
             user_name: req.body.user_name,

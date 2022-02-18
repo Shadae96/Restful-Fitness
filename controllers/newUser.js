@@ -5,7 +5,7 @@ const passport = require('passport');
 const { User } = require('../models');
 
 
-//process to create a new user in the database.
+//process to get a new user in the database.
 router.get('/', (req, res, next) => {
     res.json({test: 'test' });
 });

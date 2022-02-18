@@ -1,46 +1,25 @@
-const sequelize = require("../config/connection");
-const { User } = require("../models");
-const { Blog } = require("../models");
-const { Workouts } = require("../models")
+const seedUserData = require('./userData');
+const seedBlog = require('./blogData');
+const seedWorkouts = require('./workoutData')
 
-const userData = require("./userData.json");
-const blogData = require("./blogData.json");
-const workoutData = require("./workoutData.json");
+const sequelize = require ('../config/connection');
 
-const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
-
-  await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  process.exit(0);
-};
-
-const seedBlogDatabase = async () => {
-  await sequelize.sync({ force: true });
-
-  await Blog.bulkCreate(blogData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  process.exit(0);
-};
-
-const seedWorkoutDatabase = async () => {
+const seedAll = async () => {
   await sequelize.sync({force: true });
+  console.log('\n----- DATABASE SYNCED -----\n');
+  await seedUserData();
+  console.log('\n----- USER SEEDED -----\n');
 
-  await Workouts.bulkCreate(workoutData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await seedBlog();
+  console.log('\n---- Blog SEEDED -----\n');
+
+  await seedWorkouts();
+  console.log('\n----- Workouts SEEDED -----\n');
+
 
   process.exit(0);
-
 };
 
-seedWorkoutDatabase();
-seedBlogDatabase();
-seedDatabase();
+seedAll();
+
+

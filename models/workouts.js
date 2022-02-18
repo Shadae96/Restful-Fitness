@@ -50,7 +50,7 @@ Workouts.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'blog',
+        modelName: 'Workouts',
       }
     );
 

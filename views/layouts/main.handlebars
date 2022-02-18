@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
   <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/register.css">
+  {{!-- <link rel="stylesheet" href="/css/register.css"> --}}
 </head>
 
 <body>
@@ -35,6 +35,7 @@
 
   <!-- Only include the logout script if the user is logged in -->
   {{#if logged_in}}
+  <script src="/js/newWorkout.js"></script>
   <script src="/js/logout.js"></script>
   {{/if}}
   

@@ -1,6 +1,6 @@
-const form = document.getElementById('workoutForm');
+const form = document.getElementById('#workoutForm');
 const messageContainer = document.querySelector('.workout-message-container');
-const message = document.getElementById('workout-message');
+const message = document.getElementById('#workout-message');
 
 // Setting the form in default to invalid
 let isValid = false;
