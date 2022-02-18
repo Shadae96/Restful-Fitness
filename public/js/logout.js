@@ -11,6 +11,12 @@ const workoutHistoryHandler = async () => {
 };
 
 
+//view the community page
+const community = async () => {
+  document.location.replace('/api/blog');  
+};
+
+
 
 
 const logout = async () => {
@@ -32,3 +38,5 @@ const logout = async () => {
   document.querySelector('#newWorkout').addEventListener('click', newWorkoutForm);
   document.querySelector('#logout').addEventListener('click', logout);
   document.querySelector('#myWorkouts').addEventListener('click',workoutHistoryHandler);
+  document.querySelector('#community').addEventListener('click',community);
+

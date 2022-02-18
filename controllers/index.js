@@ -10,6 +10,8 @@ const newUserReg = require('./newUser');
 
 const newWorkout = require('./newWorkoutRoutes')
 
+
+
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
 
@@ -19,7 +21,7 @@ router.use("/api/blog", blogRoutes);
 router.use('/register', newRegForm);
 router.use('/register/login', newUserReg);
 
-router.use("/api/newWorkout", newWorkout)
+router.use('/workout', newWorkout)
 
 module.exports = router;
 

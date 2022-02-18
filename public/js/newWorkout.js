@@ -44,7 +44,7 @@ const addNewWorkout = async (e) => {
     }
 
     if (Workouts){
-        const response = await fetch('/api/newWorkout',{
+        const response = await fetch('/workout',{
             method:'POST',
             body: JSON.stringify(Workouts),
             headers: {'Content-Type' : 'application/json'},

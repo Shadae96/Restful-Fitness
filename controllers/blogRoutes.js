@@ -13,7 +13,7 @@ const util = require("util");
 
 
 // get all blog posts --- works!
-router.get('/', async (req,res)=> {
+router.get('/', withAuth, async (req,res)=> {
   try { 
       const blogData = await Blog.findAll()
       const blogs = blogData.map((blog) => blog.get ({plain:true}));
