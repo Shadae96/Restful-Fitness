@@ -1,5 +1,13 @@
 const express = require ('express');
 const router = require('express').Router();
+<<<<<<< HEAD:controllers/newWorkoutRoutes.js
+const {Workouts} = require('../models');
+
+const withAuth = require('../utils/auth');
+
+//getting the workouts
+router.get('/workout', async (req, res) => {
+=======
 const { Workouts, User } = require('../models');
 const path = require('path');
 const withAuth = require('../utils/auth');
@@ -15,15 +23,26 @@ router.get('/', (req, res,) => {
 
 //getting the workouts
 router.get('/', withAuth, async (req, res) => {
+>>>>>>> main:controllers/workouts.js
     // res.json({test: 'test' });
-    try { 
+    try {
         const workoutData = await Workouts.findAll()
-        const Workouts = workoutData.map((workout) => workout.get ({plain:true}));
+
+        // Workouts was changed to excercises!
+        const exercises = workoutData.map((workout) => workout.get ({plain: true}));
   
+<<<<<<< HEAD:controllers/newWorkoutRoutes.js
+
+        res.render('workoutHistory', {
+            exercises,
+          logged_in :req.session.logged_in,
+        });
+=======
         res.render("workoutHistory",
         { Workouts,
           logged_in:req.session.logged_in
         })
+>>>>>>> main:controllers/workouts.js
   
   } catch (err) {
         res.status(500).json(err);
@@ -33,7 +52,11 @@ router.get('/', withAuth, async (req, res) => {
 
     
 // Creating a new workout
+<<<<<<< HEAD:controllers/newWorkoutRoutes.js
+router.post('/workout', async (req, res) => {
+=======
 router.post('/', withAuth, async (req, res) => {
+>>>>>>> main:controllers/workouts.js
     try{
         const dbUserData = await Workouts.create({
             user_name: req.body.user_name,

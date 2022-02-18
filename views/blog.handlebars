@@ -3,21 +3,26 @@
 {{#if logged_in}}
   <section class = "container">
     <h1 class="community-title"> Restful Community</h1>
-    <h2 class= "introduction"> Hi {{user.name}}, welcome to the Restful Community!
-      This is a safe place to share tips,tricks and workout motivation. </h2>  
+    <h2 class= "introduction"> Hi {{user.user_name}}, welcome to the Restful Community!
+      This is a safe place to share tips, tricks and workout motivation. </h2>  
 <h3> What would you like to share?</h3>
   <div class="col-8">
     <div class="note" id="note">
     <input
-      class="note-title"
-      placeholder="Note Title"
-      maxlength="28"
+      class="blogTitle"
+      id = "blogTitle"
+      placeholder="Enter Title Here"
+      maxlength="3000"
       type="text"
     />
-    <textarea class="note-textarea" placeholder="Note Text"></textarea>
-    <button class="btn btn-primary" type="submit">submit</button>
+    <textarea class="note-textarea" id="textarea" placeholder="Enter Text Here"></textarea>
+    <button class="btn btn-primary" id="submitBlog" type="submit">submit</button>
   </div>
   </div>
+
+  <div class="blog-message-container">
+        <h3 id="blog-message"></h3>
+    </div>
 
   <section class="flex-row justify-center notes">
     {{#each blogs as |blog|}}
