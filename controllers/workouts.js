@@ -16,10 +16,12 @@ router.get('/', (req, res,) => {
 //getting the workouts
 router.get('/', withAuth, async (req, res) => {
     // res.json({test: 'test' });
-    try { 
+    try {
         const workoutData = await Workouts.findAll()
-        const Workouts = workoutData.map((workout) => workout.get ({plain:true}));
-  
+
+        // Workouts was changed to excercises!
+    const exercises = workoutData.map((workout) => workout.get ({plain: true}));
+
         res.render("workoutHistory",
         { Workouts,
           logged_in:req.session.logged_in
@@ -33,6 +35,7 @@ router.get('/', withAuth, async (req, res) => {
 
     
 // Creating a new workout
+
 router.post('/addWorkout', withAuth, async (req, res) => {
     try{
         const dbUserData = await Workouts.create({

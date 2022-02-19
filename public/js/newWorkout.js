@@ -8,13 +8,11 @@ let isValid = false;
 function validateForm(){
     // using contraint API
     isValid = form.checkValidity();
-
     //Style main message for an error
     if(!isValid){
     message.textContent = 'Please fill out all fields.';
     message.style.color = 'red';
     messageContainer.style.borderColor = 'red';
-    
     return;
 
     }
@@ -44,7 +42,7 @@ const addNewWorkout = async (e) => {
     }
 
     if (Workouts){
-        const response = await fetch('/api/workouts/addWorkouts',{
+        const response = await fetch('/api/workouts',{
             method:'POST',
             body: JSON.stringify(Workouts),
             headers: {'Content-Type' : 'application/json'},

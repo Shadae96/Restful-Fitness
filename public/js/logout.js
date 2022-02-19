@@ -31,6 +31,13 @@ const workoutHistoryHandler = async () => {
 };
 
 
+//view the community page
+const community = async () => {
+  document.location.replace('/api/blog');  
+};
+
+
+
 // Open the view of the blog from the homepage
 const blogHandler = async () => {
   const response = await fetch('/api/users/blog', {
@@ -44,6 +51,7 @@ const blogHandler = async () => {
     alert(response.statusText);
   }
 };
+
 
 
 const logout = async () => {
@@ -65,6 +73,10 @@ const logout = async () => {
 
  
   document.querySelector('#newWorkout').addEventListener('click', newWorkoutForm);
+  document.querySelector('#logout').addEventListener('click', logout);
   document.querySelector('#myWorkouts').addEventListener('click',workoutHistoryHandler);
-  document.querySelector('#community').addEventListener('click', blogHandler)
+  document.querySelector('#community').addEventListener('click',community);
+
+
+  document.querySelector('#myWorkouts').addEventListener('click',workoutHistoryHandler);
   document.querySelector('#logout').addEventListener('click', logout);

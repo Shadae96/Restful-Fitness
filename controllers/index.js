@@ -7,7 +7,6 @@ const newUserReg = require('./newUser');
 const workouts = require('./workouts')
 
 
-
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
 router.use("/api/blog", blogRoutes);
