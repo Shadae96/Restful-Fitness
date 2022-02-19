@@ -1,3 +1,11 @@
+// Go home
+const goHome = async () => {
+  document.location.replace('/');  
+};
+
+document.getElementById('homeNav').addEventListener('click', goHome);
+
+
 //Open the new  workout submission form
 const newWorkoutForm = async () => {
   document.location.replace('/api/workouts')

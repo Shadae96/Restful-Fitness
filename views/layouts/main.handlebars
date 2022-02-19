@@ -16,33 +16,42 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
+  {{!-- <header class="display-flex justify-space-between align-center p-2"> --}}
 
     <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
-
-    <h1>Welcome Back!</h1>
-    <nav>
-      <button class="btn" id="addWorkout">new workout</button>
-      <button class="btn" id="history">my workouts</button>
-      {{!-- Community is the blog --}}
-      <button class="btn" id="community">community</button>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-
-  </header>
+  {{#if logged_in}}
   
+
+  <h1>Welcome Back!</h1>
+  <div class="nav-container">
+    <span>
+    <button class="btn nav-btn" id="homeNav">home</button>
+    <button class="btn nav-btn" id="addWorkout">new workout</button>
+    <button class="btn nav-btn" id="history">my workouts</button>
+    <button class="btn nav-btn" id="community">community</button>
+    <button class="btn nav-btn" id="logout">logout</button>
+    </span>
+  </div>
+  
+ 
+ {{/if}}
+ 
+  {{!-- </header> --}}
   <main class="container container-fluid mt-5">
-  {{{ body }}}
+    {{{ body }}}
   </main>
+ 
+
+  
   <footer>
-      
+
+
   </footer>
   
 
-
+{{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}}
+{{/if}}
   
 </body>
 </html>
