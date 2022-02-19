@@ -5,17 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
-const router = require('./controllers/api/userRoutes');
 
-// for notes app
-const fs = require ("fs");
-const http= require ("http");
-const util = require("util");
-
-
-router.use(express.static("public"));
-router.use(express.urlencoded({extended:true}));
-router.use(express.json());
 
 
 

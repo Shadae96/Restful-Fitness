@@ -12,7 +12,7 @@ const workouts = require('./workouts')
 
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
-router.use("/api/blog", blogRoutes);
+// router.use("/api/blog", blogRoutes);
 router.use('/register', newRegForm);
 router.use('/register/login', newUserReg);
 router.use('/api/workouts', workouts)
