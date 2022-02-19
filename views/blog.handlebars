@@ -6,11 +6,12 @@
     <h2 class= "introduction"> Hi {{user.user_name}}, welcome to the Restful Community!
       This is a safe place to share tips, tricks and workout motivation. </h2>  
 <h3> What would you like to share?</h3>
-  <div class="col-8">
+<form id="form">
+  <div class="col-8" id="blogBody">
     <div class="note" id="note">
     <input
       class="blogTitle"
-      id = "blogTitle"
+      id = "title"
       placeholder="Enter Title Here"
       maxlength="3000"
       type="text"
@@ -19,6 +20,7 @@
     <button class="btn btn-primary" id="submitBlog" type="submit">submit</button>
   </div>
   </div>
+  </form>
 
   <div class="blog-message-container">
         <h3 id="blog-message"></h3>

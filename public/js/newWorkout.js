@@ -32,26 +32,29 @@ const addNewWorkout = async (e) => {
      e.preventDefault();
      validateForm();
      if(isValid){
-     const Workouts = {
+     const workout = {
         user_name: form.user_name.value,
         title: form.title.value,
         duration: form.duration.value,
         intensity: form.intensity.value,
         outcome: form.outcome.value,
     }
-    if (Workouts){
+    if (workout){
         const response = await fetch('/api/addworkouts',{
             method:'POST',
-            body: JSON.stringify(Workouts),
+            body: JSON.stringify(workout),
             headers: {'Content-Type' : 'application/json'},
         });
         if (response.ok) {
-            document.location.replace('/homepage');    
+            // document.location.replace('/homepage');  
+            console.log('It worked')  
         } else {
             alert ('Failed to add new workout. Please try again');
         }
     }
 }};
+
+document.getElementById('addWorkoutBtn').addEventListener('click', addNewWorkout);
 
 
 

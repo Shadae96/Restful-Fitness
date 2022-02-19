@@ -1,25 +1,10 @@
 //Open the new  workout submission form
 const newWorkoutForm = async () => {
-  document.location.replace('/api/addworkouts')
+  document.location.replace('/api/workouts')
 };
 
 
-
-//Open the view of all past workouts
-const workoutHistoryHandler = async () => {
-    const response = await fetch('/api/workouts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-  if (response.ok) {
-    // If successful redirect to workout history
-    document.location.replace('/workoutHistory');
-  } else {
-    alert(response.statusText);
-  }
-   
-};
+// Go to workout history
 
 
 //view the community page
@@ -47,8 +32,8 @@ const logout = async () => {
 //Event listeners on the nav bar for the main page
 
  
-  document.getElementById('.newWorkout').addEventListener('click', newWorkoutForm);
+  document.querySelector('#addWorkout').addEventListener('click', newWorkoutForm);
   document.querySelector('#logout').addEventListener('click', logout);
-  document.querySelector('#myWorkouts').addEventListener('click',workoutHistoryHandler);
+  document.querySelector('#myWorkouts').addEventListener('click',);
   document.querySelector('#community').addEventListener('click',community);
 
