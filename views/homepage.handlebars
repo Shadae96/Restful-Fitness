@@ -1,36 +1,43 @@
 
 {{!-- Profile Card --}}
-<div class="container">
-          <!-- WATER INTAKE -->
+<div class="waterContainer">
+  <!-- WATER INTAKE -->
   <div class="col card">
     <div class="col col-lg-2">  
       <div class="card" style="width: 30rem;">
-      <div class="card-body">
-        <h2>Drink Water</h2> 
-        <h3>Goal: 2 Liters</h3> 
-        <div class="cup">
+        <div class="card-body">
+          <h2>Drink Water</h2> 
+          <h3>Goal: 2 Liters</h3> 
+            <div class="cup">
           <!-- Remained container -->
-          <div class="remained" id="remained">
-            <span id="liters"></span>
-            <small>Remained</small>
-          </div>
-    <!-- Area for percentage drank -->
-    <div class="percentage" id="percentage"></div>
-  </div> 
-  <p class="text">Click on each glass as you complete your 8 ounce intake</p>
-    <!-- Each individual Cup -->
-    <div class="cups">
+              <div class="remained" id="remained">
+                <span id="liters"></span>
+                <small>Remained</small>
+              </div>
+            <!-- Area for percentage drank -->
+              <div class="percentage" id="percentage"></div>
+            </div> 
+            <p class="text">Click on each glass as you complete your 8 ounce intake</p>
+            <!-- Each individual Cup -->
+            <div class="cups">
       <!-- Add class of full to 1 or 2 cups, until JS finished -->
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-      <div class="cup cup-small">250 ml</div>
-    </div>
+            <div class="cup cup-small">250 ml</div>
+            <div class="cup cup-small">250 ml</div>
+            <div class="cup cup-small">250 ml</div>
+            <div class="cup cup-small">250 ml</div>
+            <div class="cup cup-small">250 ml</div>
+            <div class="cup cup-small">250 ml</div>
+            <div class="cup cup-small">250 ml</div>
+            <div class="cup cup-small">250 ml</div>
+           </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+
   
+
+
 <style>
 
 html {
@@ -52,6 +59,10 @@ body {
   /* only setting margin-bottom */
   margin-bottom: 10px;
 }
+
+.waterContainer{
+  text-align: center;
+}
 h1 {
   margin: 10px 0 0;
 }
@@ -60,6 +71,7 @@ h3 {
   font-weight: 400;
   margin: 10px 0;
 }
+
 /* Cup class includes large cup at top and 8 smaller cups */
 .cup {
   background-color: #fff;
@@ -72,7 +84,6 @@ h3 {
   align-items: center;
   margin: 30px 0;
   /* display: flex; */
-  display: center;
   flex-direction: column;
   /* Prevents contents overflowing container */
   overflow: hidden;
