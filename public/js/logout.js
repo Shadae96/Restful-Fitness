@@ -47,7 +47,7 @@ const logout = async () => {
 //Event listeners on the nav bar for the main page
 
  
-  document.getElementById('.newWorkout').addEventListener('click', newWorkoutForm);
+  document.getElementById('#addWorkout').addEventListener('click', newWorkoutForm);
   document.querySelector('#logout').addEventListener('click', logout);
   document.querySelector('#myWorkouts').addEventListener('click',workoutHistoryHandler);
   document.querySelector('#community').addEventListener('click',community);
