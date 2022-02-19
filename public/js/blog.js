@@ -1,7 +1,9 @@
+const form = document.getElementById('form')
 const title = document.getElementById('#blogTitle');
 const text = document.getElementById('#textarea');
 const blogMessageContainer = document.querySelector('.blog-message-container');
 const blogMessage = document.getElementById('#blog-message');
+
 
 // Setting the form in default to invalid
 let isValid = false;
@@ -28,6 +30,7 @@ function validateForm(){
 }
 
 
+
 const addNewBlog = async (e) => {
      e.preventDefault();
 
@@ -36,8 +39,8 @@ const addNewBlog = async (e) => {
      if(isValid){
 
      const newBlogs = {
-        title: body.title.value,
-        textarea: body.textarea.value,
+        title: form.title.value,
+        textarea: form.textarea.value,
     }
 
     if (newBlogs){
@@ -48,8 +51,8 @@ const addNewBlog = async (e) => {
         });
 
         if (response.ok) {
-            // document.location.replace('/');
-            console.log ("hello")
+
+            console.log ('It worked!')
         } else {
             alert ('Failed to add new community post. Please try again');
         }
@@ -58,7 +61,7 @@ const addNewBlog = async (e) => {
 
 
 
-document.getElementById('#submitBlog').addEventListener('click', addNewBlog);
+document.getElementById('submitBlog').addEventListener('click', addNewBlog);
 
 
 

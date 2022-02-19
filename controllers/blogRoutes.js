@@ -27,7 +27,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // Create new blog post
-
+// request at /api/blog
 router.post('/', async (req, res) => {
   try {
     const blogData = await Blog.create({

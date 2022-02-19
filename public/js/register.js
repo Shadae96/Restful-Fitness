@@ -1,4 +1,4 @@
-const form = document.getElementById('form');
+const regForm = document.getElementById('form');
 const password1El = document.getElementById('password1');
 const password2El = document.getElementById('password2');
 const messageContainer = document.querySelector('.message-container');
@@ -9,7 +9,7 @@ let isValid = false;
 
 function validateForm(){
     // using contraint API
-    isValid = form.checkValidity();
+    isValid = regForm.checkValidity();
 
     //Style main message for an error
     if(!isValid){
@@ -69,13 +69,13 @@ const signupNewUser = async (e) =>{
      if(isValid && passwordsMatch){
 
      const user = {
-                user_name: form.name.value,
-                phone: form.phone.value,
-                email: form.email.value,
-                age: form.age.value,
-                weight: form.weight.value,
-                height: form.height.value,
-                password: form.password.value
+                user_name: regForm.name.value,
+                phone: regForm.phone.value,
+                email: regForm.email.value,
+                age: regForm.age.value,
+                weight: regForm.weight.value,
+                height: regForm.height.value,
+                password: regForm.password.value
             }
 
     if (user){

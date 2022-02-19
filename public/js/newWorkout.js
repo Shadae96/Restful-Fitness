@@ -1,4 +1,3 @@
-const form = document.getElementById('workoutForm')
 const messageContainer = document.querySelector('.workout-message-container');
 const message = document.getElementById('workout-message');
 
