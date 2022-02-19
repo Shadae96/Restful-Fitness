@@ -6,6 +6,7 @@ const withAuth = require('../utils/auth');
 const fs = require ("fs");
 const http= require ("http");
 const util = require("util");
+const { render } = require('express/lib/response');
 
 
     
@@ -28,6 +29,7 @@ router.post('/', withAuth, async (req, res) => {
             
             res.status(200).json(dbUserData);
         });
+
     } catch(err){
         console.log(err);
         res.status(500).json(err)

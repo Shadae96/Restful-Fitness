@@ -46,7 +46,7 @@ const addNewWorkout = async (e) => {
             headers: {'Content-Type' : 'application/json'},
         });
         if (response.ok) {
-            // document.location.replace('/homepage');  
+            document.location.replace('/');  
             console.log('It worked')  
         } else {
             alert ('Failed to add new workout. Please try again');
