@@ -1,7 +1,7 @@
 <div class="communityBody" id="communityBody"> 
 
   <section class = "container">
-<div class="communityHeader" id="communityHeader">
+<div class="communityHeader container" id="communityHeader">
   <h1 class="community-title"> Restful Community</h1>
 
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1gg3ze3NzKkytFFGW1i56NgUJ7hAm-Kqkid0ElIUxbI2vSBQxxQCRghDbeVUW1Pq_swE&usqp=CAU" class="img-fluid" alt="Responsive image">
@@ -35,9 +35,9 @@
         <h3 id="blog-message"></h3>
     </div>
 
-  <section class="flex-row justify-center notes">
+  <section class="container flex-row justify-center notes">
     {{#each blogs as |blog|}}
-    <div class="card bg-dark border-primary mb-3" style="max-width: 30rem;">
+    <div class="bg-dark border-primary mb-3" style="">
    <h2>{{blog.title}}</h2> 
     <h3>{{blog.textarea}} </h3>
     </div>
