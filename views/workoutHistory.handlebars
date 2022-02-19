@@ -2,14 +2,18 @@
   <div class = "container workoutHistory" id="workoutHistory">
     <h1 class="workoutHistory"> Workout History</h1>
 
-  <div class="flex-row justify-center workouts">
-    {{#each workouts as |workout|}}
-   <h2>{{Workouts.title}}</h2> 
-    <h3>{{Workout.duration}}</h3>
-    <h3>{{Workout.intensity}}</h3>
-    <h3>{{Workout.outcome}} </h3>
+  <section class="flex-row justify-center workouts">
+    {{#each Workouts as |workout|}}
+   <h2>{{workout.title}}</h2> 
+    <h3>{{workout.duration}}</h3>
+    <h3>{{workout.intensity}}</h3>
+    <h3>{{workout.outcome}} </h3>
     {{/each}}
-  </div>
+  </section>
   </div>
 
+<div class="homeBtn-Container" id="homeBtn-Container">
+  <button type="submit" id="home">Home</button>
+</div>
 
+<script src="/js/workoutHistory.js"></script>

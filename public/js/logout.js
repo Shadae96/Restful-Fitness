@@ -37,6 +37,6 @@ const logout = async () => {
  
   document.querySelector('#addWorkout').addEventListener('click', newWorkoutForm);
   document.querySelector('#logout').addEventListener('click', logout);
-  document.querySelector('#history').addEventListener('click', newWorkoutForm);
+  document.querySelector('#history').addEventListener('click', workoutHistory);
   document.querySelector('#community').addEventListener('click',community);
 

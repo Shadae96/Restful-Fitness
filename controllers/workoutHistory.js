@@ -12,6 +12,23 @@ router.get ('/', withAuth, async (req, res,) => {
 });
 
 
+router.get('/', withAuth, async (req, res) => {
+    try {
+      const workoutData = await Workouts.findAll()
+      const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+  
+      res.render("workoutHistory",
+        {
+          workouts,
+          logged_in: req.session.logged_in
+  
+        })
+  
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 
 
 
