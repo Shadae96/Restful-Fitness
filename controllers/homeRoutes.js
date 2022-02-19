@@ -34,16 +34,5 @@ router.get('/login', (req, res) => {
 
 
 
-router.get("/newWorkoutForm", async (req, res) => {
-  res.render("workouts");
-});
-
-
-router.get("/workoutHistory", async (req, res) => {
-  const data = await Workouts.findAll();
-  const workouts = data.map(Workouts => Workouts.get({ plain: true }));
-  res.render("workoutHistory", { User });
-});
-
 
 module.exports = router;

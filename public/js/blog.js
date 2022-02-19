@@ -51,7 +51,7 @@ const addNewBlog = async (e) => {
         });
 
         if (response.ok) {
-
+            document.location.replace('/');
             console.log ('It worked!')
         } else {
             alert ('Failed to add new community post. Please try again');
