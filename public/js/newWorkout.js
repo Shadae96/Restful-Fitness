@@ -1,6 +1,7 @@
-const form = document.getElementById('workoutForm');
+const form = document.getElementById('workoutForm')
 const messageContainer = document.querySelector('.workout-message-container');
 const message = document.getElementById('workout-message');
+
 
 // Setting the form in default to invalid
 let isValid = false;
@@ -21,18 +22,16 @@ function validateForm(){
         message.textContent = 'Congrats! New workout added';
         message.style.color = 'green';
         messageContainer.style.borderColor = 'green';
-    }
+    };
+
 }
 
 
 
 const addNewWorkout = async (e) => {
      e.preventDefault();
-
      validateForm();
-
      if(isValid){
-
      const Workouts = {
         user_name: form.user_name.value,
         title: form.title.value,
@@ -40,23 +39,19 @@ const addNewWorkout = async (e) => {
         intensity: form.intensity.value,
         outcome: form.outcome.value,
     }
-
     if (Workouts){
-        const response = await fetch('/api/workouts',{
+        const response = await fetch('/api/addworkouts',{
             method:'POST',
             body: JSON.stringify(Workouts),
             headers: {'Content-Type' : 'application/json'},
         });
-
         if (response.ok) {
-            document.location.replace('/workouts');
-            
+            document.location.replace('/homepage');    
         } else {
             alert ('Failed to add new workout. Please try again');
         }
     }
 }};
 
-document.getElementById('#addWorkout').addEventListener('click', addNewWorkout);
 
 
