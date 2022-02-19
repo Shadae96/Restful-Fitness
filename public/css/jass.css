@@ -7,12 +7,9 @@
 
 }
 
-nav{
-    display: inline;
-}
 
 
-.registrationbody{
+.registrationbody, .loginbody {
     margin: 0;
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
@@ -29,7 +26,7 @@ nav{
     text-align: center;
 }
 
-.registerMainContainer, .workoutBody{
+.registerMainContainer, .workoutBody, .loginContainer{
     width: 480px;
     height: 800px;
     background: white;
@@ -78,6 +75,7 @@ input:invalid{
 }
 
 button{
+    display: inline-block;
     cursor: pointer;
     color: white;
     background: black;
@@ -111,3 +109,25 @@ button:focus{
 }
 
 /* login buttons changes to match */
+
+/* Blog Styling */
+.textarea {
+margin-top: 10px;
+width: 100%;
+height: 300px;
+}
+
+.communityBody {
+    background-color: 24504;
+}
+
+.nav-container{
+    width: 100%;
+    text-align: center;
+}
+
+
+.nav-btn {
+    width: 15%;
+    font-size: 12px;
+}
