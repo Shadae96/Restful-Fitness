@@ -1,7 +1,6 @@
 {{!-- adding a new workout form --}}
-<div>
-{{#if logged_in}}
 
+{{#if logged_in}}
 <div class="workoutBody" id="workoutBody">
         <h1>Good Job!</h1>
           <div class="container" id="addWorkout">
@@ -45,7 +44,7 @@
 
             </div>
             
-            <button type="submit" id="addWorkout">Add New Workout</button>
+            <button type="submit" id="addWorkoutBtn">Add New Workout</button>
         </form>
 
             <!-- Error/Success Message -->
@@ -56,4 +55,4 @@
 <script src="/js/newWorkout.js"></script>
 
  {{/if}}
- </div>
+
