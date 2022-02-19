@@ -1,4 +1,35 @@
-* {
+#communityBody{ background-color: lightblue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
   box-sizing: border-box;
   outline: none;
 }
@@ -91,4 +122,4 @@ body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
-}
+} */
