@@ -5,6 +5,9 @@ const newWorkoutForm = async () => {
 
 
 // Go to workout history
+const workoutHistory = async () => {
+  document.location.replace('/api/workoutHistory')
+}
 
 
 //view the community page
@@ -34,6 +37,6 @@ const logout = async () => {
  
   document.querySelector('#addWorkout').addEventListener('click', newWorkoutForm);
   document.querySelector('#logout').addEventListener('click', logout);
-  document.querySelector('#myWorkouts').addEventListener('click',);
+  document.querySelector('#history').addEventListener('click', newWorkoutForm);
   document.querySelector('#community').addEventListener('click',community);
 
